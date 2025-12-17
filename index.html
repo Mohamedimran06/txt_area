@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message Box with Character Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    textarea {
+      width: 300px;
+      height: 100px;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .counter {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #333;
+    }
+    .warning {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Type Your Message</h2>
+  <p>200 characters max</p>
+  
+  <textarea id="messageBox" maxlength="200"></textarea>
+  <div id="counter" class="counter">0/200 characters</div>
+  <div id="warning" class="warning"></div>
+
+  <script>
+    const textarea = document.getElementById('messageBox');
+    const counter = document.getElementById('counter');
+    const warning = document.getElementById('warning');
+    const maxChars = 200;
+
+    textarea.addEventListener('input', () => {
+      const typed = textarea.value.length;
+      const remaining = maxChars - typed;
+
+      counter.textContent = `${typed}/${maxChars} characters`;
+
+      if (typed >= maxChars) {
+        warning.textContent = "Character limit reached!";
+        textarea.value = textarea.value.substring(0, maxChars); // prevent extra typing
+      } else {
+        warning.textContent = "";
+      }
+    });
+  </script>
+</body>
+</html>
