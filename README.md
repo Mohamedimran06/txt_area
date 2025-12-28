@@ -1,7 +1,3 @@
-Got it 👍. You want a **README file** that explains how to build a website with a text area limited to 200 characters using JavaScript. Here’s a structured example you can use:
-
----
-
 # 📝 Website Text Area with Character Limit
 
 ## Overview
